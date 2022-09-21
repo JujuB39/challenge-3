@@ -1,6 +1,6 @@
 
 var generateBtn = document.querySelector("#generate");
-
+var choices = ["Y", "N"];
 // Write to generate password
 function generatePassword() {
   // Prompt character length
@@ -12,10 +12,32 @@ function generatePassword() {
     lengthAsString = prompt("Criteria not met please choose a character length between 8 and 128 characters");
     length = parseInt(lengthAsString);
   }
+  // Prompt if you want lowercase 
+  var lowercase = prompt("Do you want your password to include lowercases? Y or N?").toUpperCase();
+  while (!(lowercase === choices[0] || lowercase === choices[1])) {
+    lowercase = prompt("Criteria not met! Do you want your password to include lowercases? Y or N?").toUpperCase();
+  }
+   //prompt if you want uppercase
+  var uppercase = prompt("Do you want your password to include uppercases? Y or N?").toUpperCase()
+  while (!(uppercase === choices[0] || uppercase === choices[1])) {
+    uppercase = prompt("Criteria not met! Do you want your password to include uppercases? Y or N?").toUpperCase();
+  }
+   // prompt if you want to include numbers 
+    var numbers = prompt("Do you want your password to include numbers? Y or N?").toUpperCase()
+    while (!(numbers === choices[0] || numbers === choices[1])) {
+      numbers = prompt("Criteria not met! Do you want your password to include numbers? Y or N?").toUpperCase();
+    }
+   // prompt if you want to include special characters
+    var specialChars = prompt("Do you want your password to include special characters? Y or N?").toUpperCase();
+    while (!(specialChars === choices[0] || specialChars === choices[1])) {
+      specialChars = prompt("Criteria not met! Do you want your password to include special characters? Y or N?").toUpperCase();
+    }
 
-//character types to include 
+  }
 
-//lowercase, capital, numeric, and special 
+ 
+
+  
 
 //input validated and at least 1 character type selected after each prompt
 
