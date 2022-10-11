@@ -1,7 +1,13 @@
 
 var generateBtn = document.querySelector("#generate");
 var choices = ["Y", "N"];
-var specialCh = [" ", "!", "\"", "#", "$","%","&","'",")","(","*","+",",","-",".","/",":",";","<",">","=","?","@","[","\\","]","^","_","`","{","|","}","~"]
+var specialCh = [" ", "!", "\"", "#", "$","%","&","'",")","(","*","+",",","-",".","/",":",";","<",">","=","?","@","[","\\","]","^","_","`","{","|","}","~"];
+var lowercaseCh = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q","r", "s", "t", "u", "v", "w", "x", "y", "z"];
+var uppercaseCh = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q","R", "S", "T", "U", "V", "W", "X", "Y", "Z" ];
+var numsCh = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+var allCh = [];
+
+
 // Write to generate password
 function generatePassword() {
   // Prompt character length
@@ -36,50 +42,43 @@ function generatePassword() {
 
   //input validated and at least 1 character type selected after each prompt
   if (lowercase === choices [1] && uppercase === choices [1] && 
-    numbers === choices [1] && specialChars === choices [1]) {
-      alert("Please try again at least 1 character type must be selected!");
-      return generatePassword();
+  numbers === choices [1] && specialChars === choices [1]) {
+    alert("Please try again at least 1 character type must be selected!");
+    return generatePassword(); 
   }
+
+  if (lowercase === choices[0]) {
+    allCh += lowercaseCh;
+  }
+
+  if (uppercase === choices[0]) {
+    allCh += uppercaseCh;
+  }
+
+  if (numbers === choices [0]) {
+    allCh += numsCh;
+  }
+
+  if (specialChars === choices [0]) {
+    allCh +=specialCh;
+  }
+  console.log(allCh);
 
   var password = "";
 
   for (let i = 0; i < length; i++) {
-    if (lowercase === choices[0]) {
-      password += getPasswordLCharacter();
-    }
-    else if (uppercase === choices[0]) {
-      password += getPasswordUCharacter();
-    }
-    else if (numbers === choices[0]) {
-      password += getPasswordNCharacter();
-    }
-    else (specialChars === choices[0]) {
-      password += getPasswordSCharacter();
-    }
+   password += getPasswordCharacter();
+ 
   }
-  //after all inputs in password is generated
   return password;
  
 }
 
-//Get lowercase 
-function getPasswordLCharacter() {
-  return getPasswordUCharacter().toLowerCase();
+//Get Password characters
+function getPasswordCharacter() {
+  return allCh[Math.floor(Math.random() * allCh.length)];
 }
-//get uppercase
-function getPasswordUCharacter() {
-  return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
-  
-  
-}
-// //Get numbers
-function getPasswordNCharacter() {
-  return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
-}
-//Get special characters
-function getPasswordSCharacter() {
-   return specialCh[Math.floor(Math.random () * specialCh.length)];
-}
+
 
 // Write password to the #password input
 function writePassword() {
@@ -87,25 +86,9 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
+ 
 
 }
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-
-
-// GIVEN I need a new, secure password
-// WHEN I click the button to generate a password
-// THEN I am presented with a series of prompts for password criteria
-// WHEN prompted for password criteria
-// THEN I select which criteria to include in the password
-// WHEN prompted for the length of the password
-// THEN I choose a length of at least 8 characters and no more than 128 characters
-// WHEN asked for character types to include in the password
-// THEN I confirm whether or not to include lowercase, uppercase, numeric, and/or special characters
-// WHEN I answer each prompt
-// THEN my input should be validated and at least one character type should be selected
-// WHEN all prompts are answered
-// THEN a password is generated that matches the selected criteria
-// WHEN the password is generated
-// THEN the password is either displayed in an alert or written to the page
