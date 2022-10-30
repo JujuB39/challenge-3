@@ -62,7 +62,7 @@ function generatePassword() {
   if (specialChars === choices [0]) {
     allCh +=specialCh;
   }
-  console.log(allCh);
+ 
 
   var password = "";
 
