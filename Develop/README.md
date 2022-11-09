@@ -17,7 +17,9 @@ I really got a chance to understand how useful for loops are.  I also got to bec
 
 
 ##Screenshot of page and links
-file:///C:/Users/julis/Bootcamp/challenge-3/Develop/index.html
+
+![alt text](/screenshot.png "Password")
+
 
 
 
