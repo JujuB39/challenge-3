@@ -1,5 +1,5 @@
 # Password Generator
-This weeks challenge was to create an application that an employye could use to generate a random password based on criteria they've selected. 
+This weeks challenge was to create an application that an employee could use to generate a random password based on criteria they've selected. 
 
 ## What did I add
 For this challenge, all the changes I worked on were in Javascript. One of the first things I did was make variables that I knew I was going to need. The first variable I made was for prompts that would require a yes or no answer. After that I had to make sure I had 4 arrays for all the choices that an employee could choose. I then made a final array that was empty so I can add the previous arrays in it , if the employee chose those criteria. 
@@ -20,6 +20,8 @@ I really got a chance to understand how useful for loops are.  I also got to bec
 
 ![alt text](/screenshot.png "Password")
 
+ https://jujub39.github.io/challenge-3/
+ 
 
 
 
